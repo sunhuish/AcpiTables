@@ -42590,9 +42590,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Return (RBUF) /* \_SB_.UAR7._CRS.RBUF */
             }
 
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (0x0F)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                Return (0x0B)
             }
         }
 
@@ -42631,7 +42631,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
         Device (IC15)
         {
-            Name (_HID, "QCOM0220")  // _HID: Hardware ID
+            Name (_HID, "QCOM0220")  // _HID: Hardware ID
+			Alias (PSUB, _SUB)
             Name (_UID, 0x0F)  // _UID: Unique ID
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -42705,519 +42706,479 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
             Name (BSRC, Package (0x0B)
             {
-                Package (0x04)
-                {
-                    "DEVICE", 
-                    "\\_SB.UAR7", 
-                    Package (0x12)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x09)
-                        {
-                            "FSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "BUSARB", 
-                                Package (0x05)
-                                {
-                                    0x03, 
-                                    "ICBID_MASTER_BLSP_1", 
-                                    "ICBID_SLAVE_EBI1", 
-                                    0x53724E00, 
-                                    0x0682
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "BUSARB", 
-                                Package (0x05)
-                                {
-                                    0x03, 
-                                    "ICBID_MASTER_APPSS_PROC", 
-                                    "ICBID_SLAVE_BLSP_1", 
-                                    0x08D24D00, 
-                                    0x02FAF080
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap_0_m_ahb_clk", 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap_0_s_ahb_clk", 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_core_2x_clk", 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_core_clk", 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    One
-                                }
-                            }
-                        }, 
-
-                        Package (0x09)
-                        {
-                            "FSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap_0_m_ahb_clk", 
-                                    0x02
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap_0_s_ahb_clk", 
-                                    0x02
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x02
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_core_2x_clk", 
-                                    0x02
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x02)
-                                {
-                                    "gcc_qupv3_wrap0_core_clk", 
-                                    0x02
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "BUSARB", 
-                                Package (0x05)
-                                {
-                                    0x03, 
-                                    "ICBID_MASTER_BLSP_1", 
-                                    "ICBID_SLAVE_EBI1", 
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "BUSARB", 
-                                Package (0x05)
-                                {
-                                    0x03, 
-                                    "ICBID_MASTER_APPSS_PROC", 
-                                    "ICBID_SLAVE_BLSP_1", 
-                                    Zero, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x06)
-                        {
-                            "PSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2D, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2E, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2F, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x30, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x06)
-                        {
-                            "PSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2D, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2E, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x2F, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x30, 
-                                    Zero, 
-                                    One, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x02, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x00708000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x03, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x00E10000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x04, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x01C20000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x05, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x01E84800, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x06, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x02DC6C00, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x07, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x03D09000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x08, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x04C4B400, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x09, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x05B8D800, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x0A, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x061A8000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x0B, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x06ACFC00, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x0C, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x07080000, 
-                                    0x04
-                                }
-                            }
-                        }, 
-
-                        Package (0x03)
-                        {
-                            "PSTATE", 
-                            0x0D, 
-                            Package (0x02)
-                            {
-                                "CLOCK", 
-                                Package (0x04)
-                                {
-                                    "gcc_qupv3_wrap0_s6_clk", 
-                                    0x03, 
-                                    0x07A12000, 
-                                    0x04
-                                }
-                            }
-                        }
-                    }, 
-
-                    Package (0x04)
-                    {
-                        "COMPONENT", 
-                        One, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            One
-                        }
-                    }
+                Package (0x04)
+                {
+                    "DEVICE", 
+                    "\\_SB.UAR7", 
+                    Package (0x12)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x07)
+                        {
+                            "FSTATE", 
+                            Zero, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap_0_m_ahb_clk", 
+                                    One
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap_0_s_ahb_clk", 
+                                    One
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    One
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x05)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_BLSP_1", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    0x53724E00, 
+                                    0x0682
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x05)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_APPSS_PROC", 
+                                    "ICBID_SLAVE_BLSP_1", 
+                                    0x08D24D00, 
+                                    0x02FAF080
+                                }
+                            }
+                        }, 
+
+                        Package (0x07)
+                        {
+                            "FSTATE", 
+                            One, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap_0_m_ahb_clk", 
+                                    0x02
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap_0_s_ahb_clk", 
+                                    0x02
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x02)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x02
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x05)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_BLSP_1", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x05)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_APPSS_PROC", 
+                                    "ICBID_SLAVE_BLSP_1", 
+                                    Zero, 
+                                    Zero
+                                }
+                            }
+                        }, 
+
+                        Package (0x06)
+                        {
+                            "PSTATE", 
+                            Zero, 
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2D, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    One, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2E, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    Zero, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2F, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    Zero, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x30, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    One, 
+                                    Zero
+                                }
+                            }
+                        }, 
+
+                        Package (0x06)
+                        {
+                            "PSTATE", 
+                            One, 
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2D, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    One, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2E, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    Zero, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x2F, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    Zero, 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "TLMMGPIO", 
+                                Package (0x06)
+                                {
+                                    0x30, 
+                                    Zero, 
+                                    One, 
+                                    Zero, 
+                                    One, 
+                                    Zero
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x02, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x00708000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x03, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x00E10000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x04, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x01C20000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x05, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x01E84800, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x06, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x02DC6C00, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x07, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x03D09000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x08, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x04C4B400, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x09, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x05B8D800, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x0A, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x061A8000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x0B, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x06ACFC00, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x0C, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x07080000, 
+                                    0x04
+                                }
+                            }
+                        }, 
+
+                        Package (0x03)
+                        {
+                            "PSTATE", 
+                            0x0D, 
+                            Package (0x02)
+                            {
+                                "CLOCK", 
+                                Package (0x04)
+                                {
+                                    "gcc_qupv3_wrap0_s6_clk", 
+                                    0x03, 
+                                    0x07A12000, 
+                                    0x04
+                                }
+                            }
+                        }
+                    }, 
+
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        One, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }
                 }, 
 
                 Package (0x05)
@@ -43692,212 +43653,252 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     }
                 }, 
 
-                Package (0x07)
-                {
-                    "DEVICE", 
-                    "\\_SB.IC15", 
-                    Package (0x03)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }
-                    }, 
-
-                    Package (0x09)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x02)
-                            {
-                                "gcc_qupv3_wrap_1_m_ahb_clk", 
-                                One
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x02)
-                            {
-                                "gcc_qupv3_wrap_1_s_ahb_clk", 
-                                One
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x04)
-                            {
-                                "gcc_qupv3_wrap1_s6_clk", 
-                                0x08, 
-                                0x0124F800, 
-                                0x04
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "BUSARB", 
-                            Package (0x05)
-                            {
-                                0x03, 
-                                "ICBID_MASTER_BLSP_2", 
-                                "ICBID_SLAVE_EBI1", 
-                                0x53724E00, 
-                                0x0682
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "BUSARB", 
-                            Package (0x05)
-                            {
-                                0x03, 
-                                "ICBID_MASTER_APPSS_PROC", 
-                                "ICBID_SLAVE_BLSP_2", 
-                                0x08D24D00, 
-                                0x02FAF080
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x21, 
-                                One, 
-                                One, 
-                                One, 
-                                0x03, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x22, 
-                                One, 
-                                One, 
-                                One, 
-                                0x03, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x02)
-                    {
-                        "DSTATE", 
-                        One
-                    }, 
-
-                    Package (0x02)
-                    {
-                        "DSTATE", 
-                        0x02
-                    }, 
-
-                    Package (0x09)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x02)
-                            {
-                                "gcc_qupv3_wrap_1_m_ahb_clk", 
-                                0x02
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x02)
-                            {
-                                "gcc_qupv3_wrap_1_s_ahb_clk", 
-                                0x02
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "CLOCK", 
-                            Package (0x02)
-                            {
-                                "gcc_qupv3_wrap1_s6_clk", 
-                                0x02
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "BUSARB", 
-                            Package (0x05)
-                            {
-                                0x03, 
-                                "ICBID_MASTER_BLSP_2", 
-                                "ICBID_SLAVE_EBI1", 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "BUSARB", 
-                            Package (0x05)
-                            {
-                                0x03, 
-                                "ICBID_MASTER_APPSS_PROC", 
-                                "ICBID_SLAVE_BLSP_2", 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x21, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                0x03, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x22, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                0x03, 
-                                Zero
-                            }
-                        }
-                    }
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.IC15", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x0B)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_BLSP_2", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x53724E00, 
+                                0x0682
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_BLSP_2", 
+                                0x08F0D180, 
+                                0x02FAF080
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_m_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_s_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_qupv3_wrap1_s6_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x04
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_2x_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x21, 
+                                One, 
+                                0x02, 
+                                One, 
+                                0x03, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x22, 
+                                One, 
+                                0x02, 
+                                One, 
+                                0x03, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x0B)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_m_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_s_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_s6_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_2x_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_BLSP_2", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_BLSP_2", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x21, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                0x03, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x22, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                0x03, 
+                                Zero
+                            }
+                        }
+                    }
                 }, 
 
                 Package (0x07)
@@ -54420,110 +54421,64 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             }
         }
 
-        Device (GIO0)
-        {
-            Name (_HID, "QCOM0217")  // _HID: Hardware ID
-            Alias (PSUB, _SUB)
-            Name (_UID, Zero)  // _UID: Unique ID
-            Name (HPD1, ResourceTemplate ()
-            {
-                GpioIo (Shared, PullNone, 0x0000, 0x0000, IoRestrictionNone,
-                    "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                    )
-                    {   // Pin list
-                        0x0071
-                    }
-            })
-            OperationRegion (HPD2, GeneralPurposeIo, Zero, One)
-            Field (HPD2, ByteAcc, NoLock, Preserve)
-            {
-                Connection (HPD1), 
-                ESTA,   1
-            }
-
-            OperationRegion (GPOR, GeneralPurposeIo, Zero, One)
-            Field (GPOR, ByteAcc, NoLock, Preserve)
-            {
-            }
-
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Name (RBUF, ResourceTemplate ()
-                {
-                    Memory32Fixed (ReadWrite,
-                        0x03400000,         // Address Base
-                        0x00C00000,         // Address Length
-                        )
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
-                    {
-                        0x000000F0,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
-                    {
-                        0x000000F0,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
-                    {
-                        0x000000F0,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000288,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000238,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000226,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000232,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000284,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x0000021F,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x00000236,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
-                    {
-                        0x0000023D,
-                    }
-                })
-                Return (RBUF) /* \_SB_.GIO0._CRS.RBUF */
-            }
-
-            Method (OFNI, 0, NotSerialized)
-            {
-                Name (RBUF, Buffer (0x02)
-                {
-                     0x96, 0x00                                       // ..
-                })
-                Return (RBUF) /* \_SB_.GIO0.OFNI.RBUF */
-            }
-
-            Name (GABL, Zero)
-            Method (_REG, 2, NotSerialized)  // _REG: Region Availability
-            {
-                If ((Arg0 == 0x08))
-                {
-                    GABL = Arg1
-                }
-            }
-
-            Name (_AEI, Buffer (0x02)  // _AEI: ACPI Event Interrupts
-            {
-                 0x79, 0x00                                       // y.
-            })
+         Device (GIO0)
+        {
+            Name (_HID, "QCOM0217")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, Zero)  // _UID: Unique ID
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x03400000,         // Address Base
+                        0x00C00000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
+                    {
+                        0x000000F0,
+                    }
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
+                    {
+                        0x000000F0,
+                    }
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
+                    {
+                        0x000000F0,
+                    }
+                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
+                    {
+                        0x00000288,
+                    }
+                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
+                    {
+                        0x00000238,
+                    }
+                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Shared, ,, )
+                    {
+                        0x00000286,
+                    }
+                })
+                Return (RBUF) /* \_SB_.GIO0._CRS.RBUF */
+            }
+
+            Method (OFNI, 0, NotSerialized)
+            {
+                Name (RBUF, Buffer (0x02)
+                {
+                     0x96, 0x00                                       // ..
+                })
+                Return (RBUF) /* \_SB_.GIO0.OFNI.RBUF */
+            }
+
+            Name (GABL, Zero)
+            Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+            {
+                If ((Arg0 == 0x08))
+                {
+                    GABL = Arg1
+                }
+            }
         }
 
         OperationRegion (CP00, SystemMemory, 0x13000000, 0x24)
@@ -57478,51 +57433,62 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             }
         }
 
-        Device (QGP1)
-        {
-            Name (_HID, "QCOM02F4")  // _HID: Hardware ID
-            Alias (PSUB, _SUB)
-            Name (_UID, One)  // _UID: Unique ID
-            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-            {
-                Name (RBUF, ResourceTemplate ()
-                {
-                    Memory32Fixed (ReadWrite,
-                        0x00A04000,         // Address Base
-                        0x00050000,         // Address Length
-                        )
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000138,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000013A,
-                    }
-                })
-                Return (RBUF) /* \_SB_.QGP1._CRS.RBUF */
-            }
-
-            Method (GPII, 0, Serialized)
-            {
-                Return (Package (0x02)
-                {
-                    Package (0x03)
-                    {
-                        One, 
-                        One, 
-                        0x0138
-                    }, 
-
-                    Package (0x03)
-                    {
-                        One, 
-                        0x03, 
-                        0x013A
-                    }
-                })
-            }
+        Device (QGP1)
+        {
+            Name (_HID, "QCOM02F4")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, One)  // _UID: Unique ID
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A04000,         // Address Base
+                        0x00050000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000138,
+                    }
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000013A,
+                    }
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000145,
+                    }
+                })
+                Return (RBUF) /* \_SB_.QGP1._CRS.RBUF */
+            }
+
+            Method (GPII, 0, Serialized)
+            {
+                Return (Package (0x03)
+                {
+                    Package (0x03)
+                    {
+                        One, 
+                        One, 
+                        0x0138
+                    }, 
+
+                    Package (0x03)
+                    {
+                        One, 
+                        0x03, 
+                        0x013A
+                    }, 
+
+                    Package (0x03)
+                    {
+                        One, 
+                        0x06, 
+                        0x0145
+                    }
+                })
+            }
         }
 
         Device (SARM)
@@ -58792,7 +58758,7 @@ Include("cust_thermal_zones.asl")
 
         Device (TSC1)
         {
-            Name (_HID, "MSHW1000")  // _HID: Hardware ID
+            Name (_HID, "MSHW1003")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -58975,7 +58941,7 @@ Include("cust_thermal_zones.asl")
 
         Device (BTH0)
         {
-            Name (_HID, "QCOM02B5")  // _HID: Hardware ID
+            Name (_HID, "QCON02B5")  // _HID: Hardware ID
             Alias (PSUB, _SUB)
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
