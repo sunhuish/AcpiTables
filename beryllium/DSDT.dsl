@@ -30970,7 +30970,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 One, 
                                 0x001B7740, 
                                 One, 
-                                0x07, 
+                                0x05, 
                                 Zero
                             }
                         }, 
@@ -30984,7 +30984,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 One, 
                                 0x0013E5C0, 
                                 One, 
-                                0x07, 
+                                0x05, 
                                 Zero
                             }
                         }, 
@@ -30998,7 +30998,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 One, 
                                 0x002F5D00, 
                                 One, 
-                                0x07, 
+                                0x05, 
                                 Zero
                             }
                         }
@@ -42227,175 +42227,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             })
         }
 
-        Scope (PEP0)
-        {
-            Method (LPMX, 0, NotSerialized)
-            {
-                Return (LPXC) /* \_SB_.PEP0.LPXC */
-            }
-
-            Name (LPXC, Package (0x01)
-            {
-                Package (0x04)
-                {
-                    "DEVICE", 
-                    "\\_SB.TSC1", 
-                    Package (0x09)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x7D, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                0x03, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x63, 
-                                Zero, 
-                                Zero, 
-                                One, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO28_A", 
-                                One, 
-                                0x00325AA0, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x17, 
-                                One, 
-                                Zero, 
-                                One, 
-                                0x03, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "DELAY", 
-                            Package (0x01)
-                            {
-                                0x02
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x63, 
-                                One, 
-                                Zero, 
-                                One, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "DELAY", 
-                            Package (0x01)
-                            {
-                                0xC8
-                            }
-                        }
-                    }, 
-
-                    Package (0x06)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO28_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x17, 
-                                Zero, 
-                                Zero, 
-                                One, 
-                                One, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x63, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                One, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "TLMMGPIO", 
-                            Package (0x06)
-                            {
-                                0x7D, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                One, 
-                                Zero
-                            }
-                        }
-                    }
-                }
-            })
-        }
+        
+        Include ("cust_touch_resources.asl")
 
         Device (BAM1)
         {
@@ -53384,42 +53217,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Return (RBUF) /* \_SB_.GPU0.DITH.RBUF */
             }
 
-            Method (BLCP, 1, Serialized)
+            Method (BLCP, 1, NotSerialized)
             {
                 Name (RBUF, Buffer (0x0100){})
-                Local0 = Zero
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKHR)
-                Local0 += 0x04
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKCM)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKDS)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKUB)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKLB)
-                Local0 += One
-                Name (BON, Buffer (0x03)
-                {
-                     0x39, 0x53, 0x24                                 // 9S$
-                })
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKH2)
-                Local0 += 0x04
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKP2)
-                PKH2 = SizeOf (BON)
-                PKP2 = BON /* \_SB_.GPU0.BLCP.BON_ */
-                Local0 += SizeOf (BON)
-                CreateDWordField (RBUF, (Local0 * 0x08), EOF)
-                Local1 = (Arg0 * 0x03FF)
-                Local1 /= 0xFF
-                Local2 = (Arg0 * 0x03FF)
-                Local2 /= 0xFF00
-                Local2 &= 0x03
-                PKHR = 0x04
-                PKCM = 0x39
-                PKDS = 0x51
-                PKUB = Local2
-                PKLB = Local1
-                EOF = Zero
+                
                 Return (RBUF) /* \_SB_.GPU0.BLCP.RBUF */
             }
 
@@ -54031,7 +53832,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                         Package (0x02)
                         {
                             "DisableMiracast", 
-                            One
+                            Zero
                         }, 
 
                         Package (0x02)
@@ -58466,7 +58267,7 @@ Include("cust_thermal_zones.asl")
 
         Device (TSC1)
         {
-            Name (_HID, "MSHW1003")  // _HID: Hardware ID
+            Name (_HID, "TEST3330")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -58478,7 +58279,7 @@ Include("cust_thermal_zones.asl")
             {
                 Name (RBUF, ResourceTemplate ()
                 {
-                    I2cSerialBusV2 (0x0020, ControllerInitiated, 0x00061A80,
+                    I2cSerialBusV2 (0x0062, ControllerInitiated, 0x00061A80,
                         AddressingMode7Bit, "\\_SB.IC15",
                         0x00, ResourceConsumer, , Exclusive,
                         )
@@ -58486,13 +58287,13 @@ Include("cust_thermal_zones.asl")
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x007D
+                            31
                         }
                     GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x0063
+                            32
                         }
                 })
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
