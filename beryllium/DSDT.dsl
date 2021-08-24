@@ -127,13 +127,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x00C0
+                            112
                         }
                     GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x007E
+                            126
                         }
                 })
                 Return (RBUF) /* \_SB_.SDC2._CRS.RBUF */
@@ -30492,595 +30492,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             })
         }
 
-        Scope (PEP0)
-        {
-            Method (EWMD, 0, NotSerialized)
-            {
-                Return (WBRC) /* \_SB_.PEP0.WBRC */
-            }
+       
 
-            Name (WBRC, Package (0x03)
-            {
-                Package (0x07)
-                {
-                    "DEVICE", 
-                    "\\_SB.AMSS.QWLN", 
-                    Package (0x03)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                0x000FAFA0, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                0x000C3500, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                0x001B7740, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                0x0013E5C0, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                0x002F5D00, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x02, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x02)
-                    {
-                        "ABANDON_DSTATE", 
-                        0x02
-                    }
-                }, 
-
-                Package (0x03)
-                {
-                    "DEVICE", 
-                    "\\_SB.COEX", 
-                    Package (0x05)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }, 
-
-                        Package (0x07)
-                        {
-                            "PSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_SMPS7_A", 
-                                    0x02, 
-                                    0x000FAFA0, 
-                                    One, 
-                                    0x06, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO5_A", 
-                                    One, 
-                                    0x000C3500, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO7_A", 
-                                    One, 
-                                    0x001B7740, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO17_A", 
-                                    One, 
-                                    0x0013E5C0, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO25_A", 
-                                    One, 
-                                    0x002F5D00, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x07)
-                        {
-                            "PSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO25_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO17_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO7_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO5_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_SMPS7_A", 
-                                    0x02, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }
-                        }
-                    }
-                }, 
-
-                Package (0x05)
-                {
-                    "DEVICE", 
-                    "\\_SB.BTH0", 
-                    Package (0x03)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS3_A", 
-                                0x02, 
-                                0x0014A140, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS5_A", 
-                                0x02, 
-                                0x001F20C0, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                0x001B7740, 
-                                One, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                0x0013E5C0, 
-                                One, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                0x002F5D00, 
-                                One, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS3_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS5_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }
-                }
-            })
-        }
+        Include ("wcnss_resources.asl")
 
         Scope (PEP0)
         {
@@ -58267,7 +57681,12 @@ Include("cust_thermal_zones.asl")
 
         Device (TSC1)
         {
+			//change HID back to TEST3330
             Name (_HID, "TEST3330")  // _HID: Hardware ID
+            //Name (_CID, "PNP0C50" /* HID Protocol Device (I2C bus) */)  // _CID: Compatible ID
+            //Name (_SUB, "C153144D")  // _SUB: Subsystem ID
+            Name (_HRV, One)  // _HRV: Hardware Revision
+            Name (_ADR, Zero)  // _ADR: Address
             Name (_UID, One)  // _UID: Unique ID
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -58279,7 +57698,8 @@ Include("cust_thermal_zones.asl")
             {
                 Name (RBUF, ResourceTemplate ()
                 {
-                    I2cSerialBusV2 (0x0062, ControllerInitiated, 0x00061A80,
+					//0x62
+                    I2cSerialBusV2 (0x0001, ControllerInitiated, 0x00061A80,
                         AddressingMode7Bit, "\\_SB.IC15",
                         0x00, ResourceConsumer, , Exclusive,
                         )
@@ -58289,14 +57709,77 @@ Include("cust_thermal_zones.asl")
                         {   // Pin list
                             31
                         }
-                    GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            32
-                        }
+                    //GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
+                    //    "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                    //    )
+                    //    {   // Pin list
+                    //        32
+                    //    }
                 })
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
+            }
+			
+			            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                While (One)
+                {
+                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TSC1._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                While (One)
+                                {
+                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler
+                                    _T_2 = ToInteger (Arg1)
+                                    If ((_T_2 == One))
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x03                                             // .
+                                        })
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+
+                                    Break
+                                }
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                Debug = "Method _DSM Function HID"
+                                Return (0x20)
+                            }
+                            Else
+                            {
+                            }
+
+                            Break
+                        }
+                    }
+                    Else
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x00                                             // .
+                        })
+                    }
+
+                    Break
+                }
             }
 
             Name (PGID, Buffer (0x0A)
@@ -58448,41 +57931,7 @@ Include("cust_thermal_zones.asl")
             Alias (PSUB, _SUB)
         }
 
-        Device (BTH0)
-        {
-            Name (_HID, "QCON02B5")  // _HID: Hardware ID
-            Alias (PSUB, _SUB)
-            Name (_DEP, Package (0x03)  // _DEP: Dependencies
-            {
-                PEP0, 
-                PMIC, 
-                UAR7
-            })
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                Zero, 
-                Zero
-            })
-            Name (_S4W, 0x02)  // _S4W: S4 Device Wake State
-            Name (_S0W, 0x02)  // _S0W: S0 Device Wake State
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Name (PBUF, ResourceTemplate ()
-                {
-                    UartSerialBusV2 (0x0001C200, DataBitsEight, StopBitsOne,
-                        0xC0, LittleEndian, ParityTypeNone, FlowControlHardware,
-                        0x0020, 0x0020, "\\_SB.UAR7",
-                        0x00, ResourceConsumer, , Exclusive,
-                        )
-                })
-                Return (PBUF) /* \_SB_.BTH0._CRS.PBUF */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (0x0F)
-            }
-        }
+        Include ("wcnss_bt.asl")
 
         Include("adc.asl")
     }
