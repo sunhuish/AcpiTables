@@ -1,22 +1,22 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190703 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210730 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of DSDT.aml, Tue Aug 24 06:20:10 2021
+ * Disassembly of DSDT.aml, Wed Aug 25 03:31:28 2021
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0003D1AD (250285)
+ *     Length           0x0003D2E8 (250600)
  *     Revision         0x02
- *     Checksum         0x34
+ *     Checksum         0x97
  *     OEM ID           "QCOMM "
  *     OEM Table ID     "SDM850 "
  *     OEM Revision     0x00000003 (3)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20210604 (539035140)
+ *     Compiler Version 0x20190703 (538511107)
  */
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 {
@@ -140,13 +140,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x00C0
+                            112
                         }
                     GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x007E
+                            126
                         }
                 })
                 Return (RBUF) /* \_SB_.SDC2._CRS.RBUF */
@@ -32126,595 +32126,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             })
         }
 
-        Scope (PEP0)
-        {
-            Method (EWMD, 0, NotSerialized)
-            {
-                Return (WBRC) /* \_SB_.PEP0.WBRC */
-            }
-
-            Name (WBRC, Package (0x03)
-            {
-                Package (0x07)
-                {
-                    "DEVICE", 
-                    "\\_SB.AMSS.QWLN", 
-                    Package (0x03)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                0x000FAFA0, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                0x000C3500, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                0x001B7740, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                0x0013E5C0, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                0x002F5D00, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x02, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO5_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS7_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x02)
-                    {
-                        "ABANDON_DSTATE", 
-                        0x02
-                    }
-                }, 
-
-                Package (0x03)
-                {
-                    "DEVICE", 
-                    "\\_SB.COEX", 
-                    Package (0x05)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }, 
-
-                        Package (0x07)
-                        {
-                            "PSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_SMPS7_A", 
-                                    0x02, 
-                                    0x000FAFA0, 
-                                    One, 
-                                    0x06, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO5_A", 
-                                    One, 
-                                    0x000C3500, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO7_A", 
-                                    One, 
-                                    0x001B7740, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO17_A", 
-                                    One, 
-                                    0x0013E5C0, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO25_A", 
-                                    One, 
-                                    0x002F5D00, 
-                                    One, 
-                                    0x07, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x07)
-                        {
-                            "PSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO25_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO17_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO7_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_LDO5_A", 
-                                    One, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PMICVREGVOTE", 
-                                Package (0x06)
-                                {
-                                    "PPP_RESOURCE_ID_SMPS7_A", 
-                                    0x02, 
-                                    Zero, 
-                                    Zero, 
-                                    0x05, 
-                                    Zero
-                                }
-                            }
-                        }
-                    }
-                }, 
-
-                Package (0x05)
-                {
-                    "DEVICE", 
-                    "\\_SB.BTH0", 
-                    Package (0x03)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "FSTATE", 
-                            Zero
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS3_A", 
-                                0x02, 
-                                0x0014A140, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS5_A", 
-                                0x02, 
-                                0x001F20C0, 
-                                One, 
-                                0x06, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                0x001B7740, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                0x0013E5C0, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                0x002F5D00, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x07)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO7_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO17_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO25_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS3_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS5_A", 
-                                0x02, 
-                                Zero, 
-                                Zero, 
-                                0x05, 
-                                Zero
-                            }
-                        }
-                    }
-                }
-            })
-        }
+        Include ("wcnss_resources.asl")
 
         Scope (PEP0)
         {
@@ -48383,7 +47795,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         Zero, 
                         Zero, 
-                        ToUUID ("ba58766d-abf2-4402-88d7-90ab243f6c77")
+                        ToUUID ("ba58766d-abf2-4402-88d7-90ab243f6c77") /* Unknown UUID */
                     }
                 })
                 DerefOf (PKGG [Zero]) [Zero] = RMTB /* \_SB_.RMTB */
@@ -49435,7 +48847,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 0x31, 
                                 "V8L", 
                                 "SMMUID", 
-                                ToUUID ("9833c712-3292-4ffb-b0f4-2bd20e1f7f66"), 
+                                ToUUID ("9833c712-3292-4ffb-b0f4-2bd20e1f7f66") /* Unknown UUID */, 
                                 "SMMUINTERFACEID", 
                                 Buffer (0x10)
                                 {
@@ -49583,7 +48995,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 0x20, 
                                 "V7S", 
                                 "SMMUID", 
-                                ToUUID ("36079ae4-78e8-452d-af50-0cff78b2f1ca"), 
+                                ToUUID ("36079ae4-78e8-452d-af50-0cff78b2f1ca") /* Unknown UUID */, 
                                 "SMMUINTERFACEID", 
                                 Buffer (0x10)
                                 {
@@ -49648,9 +49060,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 0x20, 
                                 "V7S", 
                                 "SMMUID", 
-                                ToUUID ("665e0f8e-add3-49d1-91bc-5540c5f57fba"), 
+                                ToUUID ("665e0f8e-add3-49d1-91bc-5540c5f57fba") /* Unknown UUID */, 
                                 "SMMUINTERFACEID", 
-                                ToUUID ("1c3fc0e8-0b11-4ee0-be89-3e21420a865f"), 
+                                ToUUID ("1c3fc0e8-0b11-4ee0-be89-3e21420a865f") /* Unknown UUID */, 
                                 Package (0x07)
                                 {
                                     "PAGETABLEUSAGE", 
@@ -49804,7 +49216,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 0x20, 
                                 "V7S", 
                                 "SMMUID", 
-                                ToUUID ("36079ae4-78e8-452d-af50-0cff78b2f1ca"), 
+                                ToUUID ("36079ae4-78e8-452d-af50-0cff78b2f1ca") /* Unknown UUID */, 
                                 "SMMUINTERFACEID", 
                                 Buffer (0x10)
                                 {
@@ -50104,7 +49516,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         Zero, 
-                        ToUUID ("2c135991-4391-4633-90b1-fa96f2e2cc04"), 
+                        ToUUID ("2c135991-4391-4633-90b1-fa96f2e2cc04") /* Unknown UUID */, 
                         "PRIMDISPLAY_POWER_STATES", 
                         "HW_BLOCK_MDP", 
                         Package (0x02)
@@ -50715,7 +50127,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         One, 
-                        ToUUID ("30bdf1b5-28f7-4c0c-ac47-273dd1401e11"), 
+                        ToUUID ("30bdf1b5-28f7-4c0c-ac47-273dd1401e11") /* Unknown UUID */, 
                         "GRAPHICS_POWER_STATES", 
                         "HW_BLOCK_GRAPHICS", 
                         Package (0x02)
@@ -51037,7 +50449,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x02, 
-                        ToUUID ("07ca2add-df87-49e1-8583-08687dc81c8e"), 
+                        ToUUID ("07ca2add-df87-49e1-8583-08687dc81c8e") /* Unknown UUID */, 
                         "MDPBLT_POWER_STATES", 
                         "HW_BLOCK_MDP", 
                         Package (0x02)
@@ -51978,7 +51390,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x03, 
-                        ToUUID ("4d5ffbf5-d791-41cd-89cb-0154129ba607"), 
+                        ToUUID ("4d5ffbf5-d791-41cd-89cb-0154129ba607") /* Unknown UUID */, 
                         "ROTATOR_POWER_STATES", 
                         "HW_BLOCK_ROTATOR", 
                         Package (0x02)
@@ -52854,7 +52266,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x04, 
-                        ToUUID ("d0e1bb1a-703d-4be8-b450-64a4fbfca6a8"), 
+                        ToUUID ("d0e1bb1a-703d-4be8-b450-64a4fbfca6a8") /* Unknown UUID */, 
                         "VIDEO_POWER_STATES", 
                         "HW_BLOCK_VIDEO", 
                         Package (0x02)
@@ -53920,7 +53332,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x05, 
-                        ToUUID ("cc4d73fa-c3c2-4c7e-a217-d468f4611bbd"), 
+                        ToUUID ("cc4d73fa-c3c2-4c7e-a217-d468f4611bbd") /* Unknown UUID */, 
                         "CRYPTO_POWER_STATES", 
                         "HW_BLOCK_NONE", 
                         Package (0x02)
@@ -54029,7 +53441,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x06, 
-                        ToUUID ("e6be5096-55ec-4891-884b-0760bfc533b6"), 
+                        ToUUID ("e6be5096-55ec-4891-884b-0760bfc533b6") /* Unknown UUID */, 
                         "VIDEO_ENCODER_POWER_STATES", 
                         "HW_BLOCK_VIDEO", 
                         Package (0x02)
@@ -55105,7 +54517,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x07, 
-                        ToUUID ("c42be628-d6bc-4755-bfd5-5af776797228"), 
+                        ToUUID ("c42be628-d6bc-4755-bfd5-5af776797228") /* Unknown UUID */, 
                         "SECDISPLAY_POWER_STATES", 
                         "HW_BLOCK_MDP", 
                         Package (0x02)
@@ -55716,7 +55128,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x08, 
-                        ToUUID ("818daed2-9e63-49d5-bd12-b0951f7b0f6b"), 
+                        ToUUID ("818daed2-9e63-49d5-bd12-b0951f7b0f6b") /* Unknown UUID */, 
                         "DP_POWER_STATES", 
                         "HW_BLOCK_MDP", 
                         Package (0x02)
@@ -56276,7 +55688,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x09, 
-                        ToUUID ("8dd40bdf-6fbd-45ed-8538-711d434b6ba1"), 
+                        ToUUID ("8dd40bdf-6fbd-45ed-8538-711d434b6ba1") /* Unknown UUID */, 
                         "ALWAYS_ACTIVE_WP", 
                         "HW_BLOCK_NONE", 
                         Package (0x01)
@@ -61104,7 +60516,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 })
                 Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
                 {
-                    ToUUID ("6b856e62-40f4-4688-bd46-5e888a2260de"), 
+                    ToUUID ("6b856e62-40f4-4688-bd46-5e888a2260de") /* Unknown UUID */, 
                     Package (0x0A)
                     {
                         Package (0x02)
@@ -61190,7 +60602,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                          0x00                                             // .
                     })
                     CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.UCP0._DSM._T_0 */
-                    If ((_T_0 == ToUUID ("18de299f-9476-4fc9-b43b-8aeb713ed751")))
+                    If ((_T_0 == ToUUID ("18de299f-9476-4fc9-b43b-8aeb713ed751") /* Unknown UUID */))
                     {
                         While (One)
                         {
@@ -61537,7 +60949,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 Break
                             }
                         }
-                        ElseIf ((_T_0 == ToUUID ("a9a82a56-95a1-4b4a-b014-3be47df1b7d5")))
+                        ElseIf ((_T_0 == ToUUID ("a9a82a56-95a1-4b4a-b014-3be47df1b7d5") /* Unknown UUID */))
                         {
                             While (One)
                             {
@@ -61628,7 +61040,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                  0x00                                             // .
                             })
                             CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.URS0.USB0.RHUB._DSM._T_0 */
-                            If ((_T_0 == ToUUID ("a9a82a56-95a1-4b4a-b014-3be47df1b7d5")))
+                            If ((_T_0 == ToUUID ("a9a82a56-95a1-4b4a-b014-3be47df1b7d5") /* Unknown UUID */))
                             {
                                 While (One)
                                 {
@@ -61763,7 +61175,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                              0x00                                             // .
                         })
                         CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.URS0.UFN0._DSM._T_0 */
-                        If ((_T_0 == ToUUID ("fe56cfeb-49d5-4378-a8a2-2978dbe54ad2")))
+                        If ((_T_0 == ToUUID ("fe56cfeb-49d5-4378-a8a2-2978dbe54ad2") /* Unknown UUID */))
                         {
                             While (One)
                             {
@@ -61818,7 +61230,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                                 Break
                             }
                         }
-                        ElseIf ((_T_0 == ToUUID ("18de299f-9476-4fc9-b43b-8aeb713ed751")))
+                        ElseIf ((_T_0 == ToUUID ("18de299f-9476-4fc9-b43b-8aeb713ed751") /* Unknown UUID */))
                         {
                             While (One)
                             {
@@ -63050,7 +62462,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
         Device (TSC1)
         {
-            Name (_HID, "MSHW1003")  // _HID: Hardware ID
+            Name (_HID, "TEST3330")  // _HID: Hardware ID
+            Name (_HRV, One)  // _HRV: Hardware Revision
+            Name (_ADR, Zero)  // _ADR: Address
             Name (_UID, One)  // _UID: Unique ID
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -63062,7 +62476,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             {
                 Name (RBUF, ResourceTemplate ()
                 {
-                    I2cSerialBusV2 (0x0020, ControllerInitiated, 0x00061A80,
+                    //I2cSerialBusV2 (0x0020, ControllerInitiated, 0x00061A80,
+                    I2cSerialBusV2 (0x0001, ControllerInitiated, 0x00061A80,
                         AddressingMode7Bit, "\\_SB.IC13",
                         0x00, ResourceConsumer, , Exclusive,
                         )
@@ -63072,14 +62487,77 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                         {   // Pin list
                             0x007D
                         }
-                    GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x0063
-                        }
+                    //GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
+                    //    "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                    //    )
+                    //    {   // Pin list
+                    //        0x0063
+                    //    }
                 })
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
+            }
+
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                While (One)
+                {
+                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TSC1._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                While (One)
+                                {
+                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler
+                                    _T_2 = ToInteger (Arg1)
+                                    If ((_T_2 == One))
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x03                                             // .
+                                        })
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+
+                                    Break
+                                }
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                Debug = "Method _DSM Function HID"
+                                Return (0x20)
+                            }
+                            Else
+                            {
+                            }
+
+                            Break
+                        }
+                    }
+                    Else
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x00                                             // .
+                        })
+                    }
+
+                    Break
+                }
             }
 
             Name (PGID, Buffer (0x0A)
@@ -63161,7 +62639,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
             Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
             {
-                ToUUID ("fa6bd625-9ce8-470d-a2c7-b3ca36c4282e"), 
+                ToUUID ("fa6bd625-9ce8-470d-a2c7-b3ca36c4282e") /* Generic Buttons Device */, 
                 Package (0x06)
                 {
                     Package (0x05)
@@ -63231,41 +62709,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             Alias (PSUB, _SUB)
         }
 
-        Device (BTH0)
-        {
-            Name (_HID, "QCOM02B5")  // _HID: Hardware ID
-            Alias (PSUB, _SUB)
-            Name (_DEP, Package (0x03)  // _DEP: Dependencies
-            {
-                PEP0, 
-                PMIC, 
-                UAR7
-            })
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                Zero, 
-                Zero
-            })
-            Name (_S4W, 0x02)  // _S4W: S4 Device Wake State
-            Name (_S0W, 0x02)  // _S0W: S0 Device Wake State
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Name (PBUF, ResourceTemplate ()
-                {
-                    UartSerialBusV2 (0x0001C200, DataBitsEight, StopBitsOne,
-                        0xC0, LittleEndian, ParityTypeNone, FlowControlHardware,
-                        0x0020, 0x0020, "\\_SB.UAR7",
-                        0x00, ResourceConsumer, , Exclusive,
-                        )
-                })
-                Return (PBUF) /* \_SB_.BTH0._CRS.PBUF */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (0x0F)
-            }
-        }
+        Include ("wcnss_bt.asl")
 
         Device (ADC1)
         {
