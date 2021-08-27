@@ -4,16 +4,16 @@ Name (PCFG, Buffer(){"
 <PanelDescription>Tianma Single DSI Video Mode Panel (1080x2246 24bpp)</PanelDescription>
 <Group id='Active Timing'>
 	<HorizontalActive>1080</HorizontalActive>
-	<HorizontalFrontPorch>40</HorizontalFrontPorch>
-	<HorizontalBackPorch>44</HorizontalBackPorch>
-	<HorizontalSyncPulse>20</HorizontalSyncPulse>
+	<HorizontalFrontPorch>28</HorizontalFrontPorch>
+	<HorizontalBackPorch>16</HorizontalBackPorch>
+	<HorizontalSyncPulse>4</HorizontalSyncPulse>
 	<HorizontalSyncSkew>0</HorizontalSyncSkew>
 	<HorizontalLeftBorder>0</HorizontalLeftBorder>
 	<HorizontalRightBorder>0</HorizontalRightBorder>
 	<VerticalActive>2246</VerticalActive>
-	<VerticalFrontPorch>10</VerticalFrontPorch>
-	<VerticalBackPorch>10</VerticalBackPorch>
-	<VerticalSyncPulse>2</VerticalSyncPulse>
+	<VerticalFrontPorch>120</VerticalFrontPorch>
+	<VerticalBackPorch>12</VerticalBackPorch>
+	<VerticalSyncPulse>4</VerticalSyncPulse>
 	<VerticalSyncSkew>0</VerticalSyncSkew>
 	<VerticalTopBorder>0</VerticalTopBorder>
 	<VerticalBottomBorder>0</VerticalBottomBorder>
@@ -44,7 +44,48 @@ Name (PCFG, Buffer(){"
   00
  </DSIControllerMapping>
 </Group>
-<DSIInitSequence> 15 FF 22
+<DSIInitSequence>
+//ebbg
+ 15 00 00
+ FF 3C
+ 29 FF 87 19 01
+ 15 00 80
+ 29 FF 87 19
+ 15 00 A0
+ 29 D6 7A 79 74 8C 8C 92 97 9B 97 8F 80 77
+ 15 00 B0
+ 29 D6 7E 7D 81 7A 7A 7B 7C 81 84 85 80 82
+ 15 00 C0
+ 29 D6 7D 7D 78 8A 89 8F 97 97 8F 8C 80 7A
+ 15 00 D0
+ 29 D6 7E 7D 81 7C 79 7B 7C 80 84 85 80 82
+ 15 00 E0
+ 29 D6 7B 7B 7B 80 80 80 80 80 80 80 80 80
+ 15 00 F0
+ 29 D6 7E 7E 80 80 80 80 80 80 80 80 80 80
+ 15 00 00
+ 29 D7 80 80 80 80 80 80 80 80 80 80 80 80
+ 15 00 10
+ 29 D7 80 80 80 80 80 80 80 80 80 80 80 80
+ 15 00 A0
+ 29 CA 0F 0F 0F
+ 15 00 80
+ 29 CA BE B5 AD A6 A0 9B 96 91 8D 8A 87 83
+ 15 00 90
+ 29 CA FE FF 66 F6 FF 66 FB FF 32
+ 15 00 00
+ 29 FF 00 00 00
+ 15 00 80
+ 29 FF 00 00
+ 15 51 FF
+ 15 53 24
+ 15 55 00
+ 05 11
+ FF 78
+ 05 29
+
+//Tianma
+ 15 FF 22
  15 00 40
  15 01 C0
  15 02 40
@@ -334,6 +375,8 @@ Name (PCFG, Buffer(){"
  15 C3 01
  15 C4 54
  15 FF 10
+
+ 
 </DSIInitSequence>
 <Group id='Backlight Configuration'>
 	<BacklightType>1</BacklightType>
