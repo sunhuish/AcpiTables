@@ -411,7 +411,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
         }
 
 
-		Include("pmic_batt_fajita.asl")
+		Include("pmic_batt.asl")
         
         Device (PEP0)
         {

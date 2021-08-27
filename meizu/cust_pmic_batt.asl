@@ -8,7 +8,7 @@
 //--------------------
 //PMBT: Method(BBAT)
 //--------------------
-Name(BFCC, 13890)             //* (mWh), Full Charge Capacity  
+Name(BFCC, 14010)             //* (mWh), Full Charge Capacity  
 Name(PCT1, 5)                 //* (% of FCC),  Default Alert 1  
 Name(PCT2, 9)                 //* (% of FCC),  Default Alert 2  
 
