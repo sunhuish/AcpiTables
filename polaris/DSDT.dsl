@@ -59199,7 +59199,7 @@ Include("cust_thermal_zones.asl")
 
         Device (BTH0)
         {
-            Name (_HID, "QCON02B5")  // _HID: Hardware ID
+            Name (_HID, "QCOM02B5")  // _HID: Hardware ID
             Alias (PSUB, _SUB)
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
