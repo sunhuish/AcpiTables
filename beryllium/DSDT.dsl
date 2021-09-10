@@ -57991,23 +57991,26 @@ Include("cust_thermal_zones.asl")
             {
                 Name (RBUF, ResourceTemplate ()
                 {
+                    //Power
                     GpioInt (Edge, ActiveBoth, Exclusive, PullDown, 0x0010,
                         "\\_SB.PM01", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
                             0x0000
                         }
+                    //Vol Up
                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullUp, 0x0000,
                         "\\_SB.PM01", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
                             0x0085
                         }
+                    //Vol Down
                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDown, 0x0000,
                         "\\_SB.PM01", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x0084
+                            0x0001
                         }
                 })
                 Return (RBUF) /* \_SB_.BTNS._CRS.RBUF */
