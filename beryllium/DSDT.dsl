@@ -57684,9 +57684,7 @@ Include("cust_thermal_zones.asl")
             Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
         }
 
-
-
-        Device (TSC1)
+		Device (TSC1)
         {
 			//change HID back to TEST3330
             Name (_HID, "NVTS3667")  // _HID: Hardware ID
@@ -57834,7 +57832,7 @@ Include("cust_thermal_zones.asl")
                 }
             }
         }
-		
+
 		Device (TSC2)
         {
             Name (_HID, "FTTS8719")  // _HID: Hardware ID
@@ -57870,7 +57868,7 @@ Include("cust_thermal_zones.asl")
                     //        32
                     //    }
                 })
-                Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
+                Return (RBUF)
             }
 			
 			            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -57881,7 +57879,7 @@ Include("cust_thermal_zones.asl")
                     {
                          0x00                                             // .
                     })
-                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TSC1._DSM._T_0 */
+                    CopyObject (ToBuffer (Arg0), _T_0)
                     If ((_T_0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         While (One)
@@ -57938,7 +57936,7 @@ Include("cust_thermal_zones.asl")
 
             Name (PGID, Buffer (0x0A)
             {
-                "\\_SB.TSC1"
+                "\\_SB.TSC2"
             })
             Name (DBUF, Buffer (DBFL){})
             CreateByteField (DBUF, Zero, STAT)
@@ -57963,10 +57961,10 @@ Include("cust_thermal_zones.asl")
             {
                 DEID = Buffer (ESNL){}
                 DVAL = Zero
-                DEID = PGID /* \_SB_.TSC1.PGID */
+                DEID = PGID
                 If (^^ABD.AVBL)
                 {
-                    ^^PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
+                    ^^PEP0.FLD0 = DBUF
                 }
             }
 
@@ -57974,10 +57972,10 @@ Include("cust_thermal_zones.asl")
             {
                 DEID = Buffer (ESNL){}
                 DVAL = 0x03
-                DEID = PGID /* \_SB_.TSC1.PGID */
+                DEID = PGID
                 If (^^ABD.AVBL)
                 {
-                    ^^PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
+                    ^^PEP0.FLD0 = DBUF
                 }
             }
         }
