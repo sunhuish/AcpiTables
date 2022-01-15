@@ -1,4 +1,3 @@
-//
         //CPU Aggregator Device -- Required for Thermal Parking
         Device(AGR0)
         {
@@ -192,26 +191,26 @@
         //        Thermal Zones for Camera TSENS
         //---------------------------------------------------------------------
         //Thermal zone for TSENS17 to dial back MSM at 95C
-        // ThermalZone (TZ32) {
-        //     Name (_HID, "QCOM02C9")
-        //     Name (_UID, 0)
-        //     Name(_TZD, Package (){\_SB.GPU0.AVS0})
-        //     Name(TPSV, 3680)
-        //     Method(_PSV) { Return (\_SB.TZ32.TPSV) }
-        //     Name(TTC1, 1)
-        //     Method(_TC1) { Return (\_SB.TZ32.TTC1) }
-        //   // For non-cpu devices, tc2 should be atleast 5, please refer to the 
-        //   // explanation at the top of the file or msdn link for thermal guide.
-        //     Name(TTC2, 2) 
-        //     Method(_TC2) { Return (\_SB.TZ32.TTC2) }
-        //     // For non-cpu devices, _tsp should be 20 or 30
-        //     Name(TTSP, 10) 
-        //     Method(_TSP) { Return (\_SB.TZ32.TTSP) }           
-        //     Name(_TZP, 0)
-        //     Method(_DEP) {
-        //         Return (Package() {\_SB.PEP0})
-        //     }
-        // } // end of TZ32
+        ThermalZone (TZ32) {
+            Name (_HID, "QCOM02C9")
+            Name (_UID, 0)
+            Name(_TZD, Package (){\_SB.GPU0.AVS0})
+            Name(TPSV, 3680)
+            Method(_PSV) { Return (\_SB.TZ32.TPSV) }
+            Name(TTC1, 1)
+            Method(_TC1) { Return (\_SB.TZ32.TTC1) }
+          // For non-cpu devices, tc2 should be atleast 5, please refer to the 
+          // explanation at the top of the file or msdn link for thermal guide.
+            Name(TTC2, 2) 
+            Method(_TC2) { Return (\_SB.TZ32.TTC2) }
+            // For non-cpu devices, _tsp should be 20 or 30
+            Name(TTSP, 10) 
+            Method(_TSP) { Return (\_SB.TZ32.TTSP) }           
+            Name(_TZP, 0)
+            Method(_DEP) {
+                Return (Package() {\_SB.PEP0})
+            }
+        } // end of TZ32
 
         ThermalZone (TZ33) {
             Name (_HID, "QCOM02CB")
