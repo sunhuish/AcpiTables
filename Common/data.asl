@@ -11,7 +11,7 @@
 	Name (_HID, "QCOM02A5")
   Method (_STA) 
 	{
-        Return (0xB)
+        Return (0xF)
   } 
  }
 
@@ -36,7 +36,7 @@ Device (DBUS)
 	}
   Method (_STA) 
 	{
-        Return (0xB)
+        Return (0xF)
   } 
 }
 

@@ -44,7 +44,7 @@ Include("cust_pmic_batt.asl")
             })
 
         Method (_STA) {
-            Return (0xB)    // Device is installable, functional & should not be visible in OSPM/Device Manager
+            Return (0xF)    // Device is installable, functional & should not be visible in OSPM/Device Manager
         }
 
         Method (_CRS, 0x0, NotSerialized) {
@@ -434,7 +434,7 @@ Include("cust_pmic_batt.asl")
             }
 
                         Method (_STA) {
-                Return (0xB)    // Device is installable, functional & should not be visible in OSPM/Device Manager
+                Return (0xF)    // Device is installable, functional & should not be visible in OSPM/Device Manager
             }
         }
 
@@ -450,7 +450,7 @@ Device (BCL1) {
     })
 
         Method (_STA) {
-        Return (0xB)    // Device is installable, functional & should not be visible in OSPM/Device Manager
+        Return (0xF)    // Device is installable, functional & should not be visible in OSPM/Device Manager
     }
 
     Method (_CRS, 0x0, NotSerialized) {

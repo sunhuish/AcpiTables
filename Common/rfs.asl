@@ -44,6 +44,6 @@ Device (RFS0)
 
     Method (_STA) 
     {
-        Return(0xB)
+        Return(0xF)
     }
 }

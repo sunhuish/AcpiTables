@@ -27,7 +27,7 @@ Device (UAR7)
 
     Method (_STA)
     {  
-      Return (0x0B)
+      Return (0xF)
     }
 }
 
