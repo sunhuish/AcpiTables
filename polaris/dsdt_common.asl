@@ -143,7 +143,6 @@ Include("pmic_batt.asl")
 //
 Include("../Common/qgpi.asl")
 
-Include("../Common/qwpp.asl")
 //Include("nfc.asl")
 
 Include("../Common/sar_manager.asl")
