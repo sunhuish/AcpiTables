@@ -61,7 +61,7 @@ Device (CAMP)
     // -----------------------|-----------/-----------|-----------/-----------|-----------/------------
     // 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00 | << BIT INDEX
     // -----------------------|-----------/-----------|-----------/-----------|-----------/------------
-    //               RESERVED |  CSI_PHY  |  I2C_BUS  |    RSVD   | FL_INX |FP|     DIR   |     ORI    | << FIELD MEANING
+    //               RESERVED |  CSI_PHY  |  I2C_BUS  | RESERVED  | FL_INX |FP|     DIR   |     ORI    | << FIELD MEANING
     // -------------------  --|-----------------------|-----------|--------|--|-----------|------------
     // 0b                       0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0   << 0x00000100 (RFC)
     // 0b                       0  0  1  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0   << 0x00210010 (FFC)
@@ -82,10 +82,10 @@ Device (CAMP)
             {
                 Package ()
                 {
-                    0x00000007,         // [1] SENSOR PRESENCE
-                    0x00000102,         // [2] SENSOR_0/RFC CONNECTION
-                    0x00210010,         // [3] SENSOR_1/FFC CONNECTION
-                    0x00110310,         // [4] SENSOR_2/AUX/IRIS CONNECTION
+                    0x00000001,         // [1] SENSOR PRESENCE
+                    0x00000100,         // [2] SENSOR_0/RFC CONNECTION
+                    0x00000000,         // [3] SENSOR_1/FFC CONNECTION
+                    0x00000000,         // [4] SENSOR_2/AUX/IRIS CONNECTION
                     0x00000000,         // [5] SENSOR_3 CONNECTION; RESERVED
                     0x00000000,         // [6] SENSOR_4 CONNECTION; RESERVED
                     0x00000000,         // [7] SENSOR_5 CONNECTION; RESERVED
@@ -310,7 +310,7 @@ Device (CAMP)
 }
 
 //
-// Primary Rear Camera (IMX318)
+// Primary Rear Camera (IMX363)
 //
 Device (CAMS)
 {
@@ -338,14 +338,14 @@ Device (CAMS)
     // 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00 | << BIT INDEX
     //          RESERVED            | DTT | ADT | FRQ |                 SLAVE ADDRESS                  | << MEANING
     // -----------------------------|-----|-----|-----|------------------------------------------------
-    // 0b                             0  1  0  1  0  1               FROM IMX318 REG MAP               | << 0x150034
+    // 0b                             0  0  0  1  0  1               FROM IMX318 REG MAP               | << 0x50034
     // -----------------------|-----------/-----------|-----------------------|-----------/------------
     // Register Data Type (DTT):    0b00 -- CAMERA_I2C_BYTE_DATA, 0b01 -- WORD, 0b10 -- DWORD
     // Register Address Type (ADT): 0b00 -- CAMERA_I2C_BYTE_ADDR, 0b01 -- WORD, 0b10 -- 3B
     // I2C Frequency mode:          0b00 -- 100 KHz (standard), 0b01 -- 400 KHz (fast), 0b10 -- 1 MHz (fast_plus).
     //
     // [4] Slave Data Part 1 for and from Probing
-    // Expected Reading (16 bits; 0x318) + Register Address (16 bits; 0x16)
+    // Expected Reading (16 bits; 0x363) + Register Address (16 bits; 0x16)
     // 
     // [5] Slave Data Part 2 for and from Probing
     // Same format as above; Reserved for Revision # (if applied)
@@ -358,10 +358,10 @@ Device (CAMS)
             {
                 Package ()
                 {
-                    "com.qti.sensormodule.liteon_imx318.bin",   // [1] Driver binary file name
-                    "com.qti.tuned.liteon_imx318.bin",          // [2] Tuning binary file name
-                    0x00150034,                                 // [3] I2C Slave Information for Sensor Probing
-                    0x03180016,                                 // [4] Slave Data Part 1 for and from Probing
+                    "com.qti.sensormodule.imx363.bin",   // [1] Driver binary file name
+                    "com.qti.tuned.semco_imx363.bin",          // [2] Tuning binary file name
+                    0x00050034,                                 // [3] I2C Slave Information for Sensor Probing
+                    0x03630016,                                 // [4] Slave Data Part 1 for and from Probing
                     0x00000000                                  // [5] Slave Data Part 2 for and from Probing; Reserved
                 }
             }
@@ -420,7 +420,7 @@ Device (CAMF)
     // Return 0x0 to disable CAMF sensor
     Method (_STA)
     {
-        Return (0xf)
+        Return (0x0)
     }
 
     Method (SCFG, 0x0, Serialized)
@@ -493,7 +493,7 @@ Device (CAMI)
     // Return 0x0 to disable CAMI sensor
     Method (_STA)
     {
-        Return (0xf)
+        Return (0x0)
     }
 
     Method (SCFG, 0x0, Serialized)
