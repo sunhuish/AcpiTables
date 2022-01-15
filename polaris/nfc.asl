@@ -41,7 +41,7 @@ Device(NFCD)
 //NFCC FW DOWNLOAD GPIO
     Name(NFCF, ResourceTemplate()
     {
-        GpioIO(Exclusive, PullDefault, 0, 0, IoRestrictionNone, "\\_SB.GIO0", 0, ResourceConsumer, , ) {62} // Download
+        GpioIO(Exclusive, PullDefault, 0, 0, IoRestrictionNone, "\\_SB.GIO0", 0, ResourceConsumer, , ) {88} // Download
     })
         Scope(GIO0)
         {
