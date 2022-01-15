@@ -1,4 +1,4 @@
-Name(HWNH, 1)
+Name(HWNH, 0)
 Name(HWNL, 0)
 
 //
