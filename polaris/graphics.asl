@@ -1449,7 +1449,7 @@ Device (GPU0)
                     "BANDWIDTH",                                         // Resource Type
                     13,                                                  // Num P-States in Set
                     0,                                                   // Num CustomData fields in Set
-                    TRUE,                                                // Has Thermal Thresholds
+                    "TRUE",                                                // Has Thermal Thresholds //Put it in quotes so compiler doesn't complain. TAO_Croatia
                     4,                                                   // Initial P-State
                     3,                                                   // Stable Power P-State
                 
@@ -2962,7 +2962,7 @@ Device (GPU0)
                 "CORE_CLOCK",                                        // Resource Type
                 9,                                                   // Num P-States in Set
                 1,                                                   // Num CustomData fields in Set
-                TRUE,                                                // Has Thermal Thresholds
+                "TRUE",                                                // Has Thermal Thresholds
                 5,                                                   // Initial P-State
                 3,                                                   // Stable Power P-State
             
@@ -3001,7 +3001,7 @@ Device (GPU0)
                 "CORE_CLOCK",                                        // Resource Type
                 2,                                                   // Num P-States in Set
                 1,                                                   // Num CustomData fields in Set
-                TRUE,                                                // Has Thermal Thresholds
+                "TRUE",                                                // Has Thermal Thresholds
                 0,                                                   // Initial P-State
                 0,                                                   // Stable Power P-State
             

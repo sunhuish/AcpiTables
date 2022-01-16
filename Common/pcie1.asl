@@ -1007,7 +1007,7 @@ Device (PCI1) {
 			
 			If(LNotEqual(And(SUPP, 0x16), 0x16))
 			{
-				And(CTRL,0x1E) // Give control of everything to the OS
+				And(CTRL,0x1E,CTRL) // Give control of everything to the OS //Fixed syntax.
 			}
 			
 			And(CTRL,0x15,CTRL) 

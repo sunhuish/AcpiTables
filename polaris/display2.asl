@@ -17,13 +17,15 @@ Method (ROM2, 3, NotSerialized) {
    //       PCFG is buffer name for all default panel configurations
    //       All other dynamically detected panel configurations must not use this name
    //======================================================================================
-   Switch (  ToInteger (Arg2) )
-   {
-        // Default case
-        Default {
-            Store (PCFG, Local2)
-        }
-   }
+//   Switch (  ToInteger (Arg2) )
+//   {
+//        // Default case
+//        Default {
+//            Store (PCFG, Local2)
+//        }
+//   }
+
+Store (PCFG, Local2) //It's the default above, looks like it gets run always. TAO_Croatia
 
    // Ensure offset does not exceed the buffer size 
    // otherwise return a Null terminated buffer
