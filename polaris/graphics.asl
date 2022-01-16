@@ -18,7 +18,6 @@ Device (GPU0)
     Alias(\_SB.PSUB, _SUB)
     Name (_CID, "ACPI\QCOM027E")
     Name (_UID, 0)
-    Name (_CLS, 0x0003000000000000)
     Name (_HRV, 0x07C)
 
     // Expose the internal monitor device to allow it to be used in a thermal zone
