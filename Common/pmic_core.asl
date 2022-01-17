@@ -157,7 +157,7 @@ Device (PMAP)
 Device (PRTC) 
 {
 	Name(_HID, "ACPI000E")
-	Name(_DEP, Package() {PMAP})       // PRTC is dependent on PMAP which implements the RTC Functions
+	Name(_DEP, Package() {"\\_SB.PMAP"})       // PRTC is dependent on PMAP which implements the RTC Functions
 
 	//Get the capabilities of the time and alarm device
 	Method(_GCP)
