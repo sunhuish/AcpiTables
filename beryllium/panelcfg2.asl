@@ -1,7 +1,7 @@
-Name (PCFG, Buffer(){"
+Name (PCFB, Buffer(){"
     <?xml version='1.0' encoding='utf-8'?>
 <PanelName>EBBG</PanelName>
-<PanelDescription>EBBG</PanelDescription>
+<PanelDescription>EBBG (possibly Tianma)</PanelDescription>
 <Group id='Active Timing'>
 	<HorizontalActive>1080</HorizontalActive>
 	<HorizontalFrontPorch>28</HorizontalFrontPorch>

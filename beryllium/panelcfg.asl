@@ -1,4 +1,4 @@
-Name (PCFG, Buffer(){"
+Name (PCFA, Buffer(){"
     <?xml version='1.0' encoding='utf-8'?>
 <PanelName>TIANMA_NT36672A_FHD</PanelName>
 <PanelDescription>Tianma Single DSI Video Mode Panel (1080x2246 24bpp)</PanelDescription>

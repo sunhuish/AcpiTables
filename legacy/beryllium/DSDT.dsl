@@ -57721,6 +57721,33 @@ Include("cust_thermal_zones.asl")
                     //        32
                     //    }
                 })
+				
+				
+				OperationRegion(TOP1, GenericSerialBus, 0x00, 0x100) // GenericSerialBus device at command value offset
+				Field(TOP1, BufferAcc, NoLock, Preserve)
+				{
+					Connection(I2CSerialBusV2(0x5a,,100000,,"\_SB.I2C",,,,,RawDataBuffer(){1,6})),
+					AccessAs(BufferAcc, AttribByte), // Use the GenericSerialBus Read/Write Byte protocol
+					FLD0, 8, // Virtual register at command value 0.
+					FLD1, 8, // Virtual register at command value 1.
+					FLD2, 8 // Virtual register at command value 2.
+				}
+				// Create the GenericSerialBus data buffer
+				Name(BUFF, Buffer(3){})
+				// Create GenericSerialBus data buffer as BUFF
+				CreateByteField(BUFF, 0x00, STAT) // STAT = Status (Byte)
+				CreateByteField(BUFF, 0x02, DATA) // DATA = Data (Byte)
+				// Read a byte of data from the device using command value 1
+				Store(FLD1, BUFF) // Invoke a Read Byte transaction
+				If(LEqual(STAT, 0x00)) // Successful?
+				{
+					Store(0x16, DATA) // Save 0x16 into the data buffer
+					Store(BUFF, FLD2) // Invoke a Write Byte transaction
+				}
+				// Write the byte ‘0x16’ to the device using command value 2
+
+				
+				
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
             }
 			
@@ -57976,6 +58003,229 @@ Include("cust_thermal_zones.asl")
                 If (^^ABD.AVBL)
                 {
                     ^^PEP0.FLD0 = DBUF
+                }
+            }
+        }
+
+		Scope (\_SB.PEP0)
+        {
+            Method (FPMX, 0, NotSerialized)
+            {
+                Return (FPXC) /* \_SB_.PEP0.FPXC */
+            }
+
+            Name (FPXC, Package (0x01)
+            {
+                Package (0x04)
+                {
+                    "DEVICE", 
+                    "\\_SB.FPRT", 
+                    Package (0x08)
+                    { // beryllium uses an ic with enable pin to control power to fp, while yoga shuts and turns on a regulator
+                        /*"DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO19_A", 
+                                One, 				// Voltage Regulator Type, 1 = LDO
+                                0x002F4D60, 	// Voltage (uV)
+                                One, 				// Enable
+                                0x07, 				// Power Mode
+                                Zero 				// Headroom
+                            }
+                        }, */
+
+						Package (0x02)//enable
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+								94, 
+                                One, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "DELAY", 
+                            Package (0x01)
+                            {
+                                0x0A
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                121,  	// TLMM GPIO
+                                One, 	// State 					: 1 = HIGH
+                                Zero, 	// Function Select  	:  0 = ??
+                                One,  	// Direction       		:   0 = INPUT
+                                Zero, 	// Pull Type       		:   1 = PULL_DOWN
+                                Zero 	// Drive Strength  	:   0 = 2mA
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                37, 
+                                One, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "DELAY", 
+                            Package (0x01)
+                            {
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                121, 
+                                One, 
+                                Zero, 
+                                One, 
+                                One, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        /*"DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO19_A", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }*/
+						
+						Package (0x02)//disable
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                94, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                One, 
+                                Zero
+                            }
+                        }, 
+						
+                    }
+                }
+            })
+        }
+
+
+		// needs pin 94 high to get power //power enable pin
+		// Also seems to need VREG_S4A_1P8  (pm8998-smps4) edit:apparently that one is always on
+		Device (FPRT)
+        {
+            Name (_HID, "GXFP55A4")  // _HID: Hardware ID
+            Name (_CID, "GXFP55A4")  // _CID: Compatible ID
+            Name (_UID, "GXFP55A4")  // _UID: Unique ID
+            Name (_DEP, Package (0x03)  // _DEP: Dependencies
+            {
+                \_SB.GIO0, 
+                \_SB.PEP0, 
+                \_SB.TREE
+            })
+            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            {
+                Name (BBUF, ResourceTemplate ()
+                {
+                    GpioIo (Exclusive, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            37 //fp_reset //originally 104/0x68
+                        }
+                    GpioInt (Edge, ActiveHigh, ExclusiveAndWake, PullNone, 0x0000,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            121 //fp_int 0x79 //same as on yoga
+                        }
+                })
+                Return (BBUF) /* \_SB_.FPRT._CRS.BBUF */
+            }
+
+            Name (PGID, Buffer (0x0A)
+            {
+                "\\_SB.FPRT"
+            })
+            Name (DBUF, Buffer (DBFL){})
+            CreateByteField (DBUF, Zero, STAT)
+            CreateByteField (DBUF, 0x02, DVAL)
+            CreateField (DBUF, 0x18, 0xA0, DEID)
+            Method (_S1D, 0, NotSerialized)  // _S1D: S1 Device State
+            {
+                Return (0x03)
+            }
+
+            Method (_S2D, 0, NotSerialized)  // _S2D: S2 Device State
+            {
+                Return (0x03)
+            }
+
+            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
+            {
+                Return (0x03)
+            }
+
+            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+            {
+                DEID = Buffer (ESNL){}
+                DVAL = Zero
+                DEID = PGID /* \_SB_.FPRT.PGID */
+                If (\_SB.ABD.AVBL)
+                {
+                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.FPRT.DBUF */
+                }
+            }
+
+            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+            {
+                DEID = Buffer (ESNL){}
+                DVAL = 0x03
+                DEID = PGID /* \_SB_.FPRT.PGID */
+                If (\_SB.ABD.AVBL)
+                {
+                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.FPRT.DBUF */
                 }
             }
         }
