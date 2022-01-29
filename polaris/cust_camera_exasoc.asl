@@ -361,7 +361,7 @@ Device (CAMS)
                     "com.qti.sensormodule.imx363.bin",   // [1] Driver binary file name
                     "com.qti.tuned.semco_imx363.bin",          // [2] Tuning binary file name
                     0x00050034,                                 // [3] I2C Slave Information for Sensor Probing
-                    0x03630016,                                 // [4] Slave Data Part 1 for and from Probing
+                    0x00030016,                                 // [4] Slave Data Part 1 for and from Probing
                     0x00000000                                  // [5] Slave Data Part 2 for and from Probing; Reserved
                 }
             }

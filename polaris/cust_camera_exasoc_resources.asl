@@ -416,7 +416,10 @@ Scope(\_SB_.PEP0)
 
                 // [2] TLMM_GPIO: VIN_PM8998 - VIN_PMI8998 - BOB - ELDO9 - AVDD (VANA); CAM0_STBY_N / CAM_ELDO9_EN;
                 //     Primary Rear Camera AVDD LDO Enable. LD20-NE182-8-C5. L22A, IMX318_AVDD_ALT is not used.
-                package() { "TLMMGPIO", package() { 79, 1, 0, 1, 0, 0, }, },
+                package() { "TLMMGPIO", package() { 87, 1, 0, 1, 0, 0, }, },
+                package() { "DELAY", package() { 1, }, },
+                //     CAMW_AVDD_1P8
+                package() { "TLMMGPIO", package() { 102, 1, 0, 1, 0, 0, }, },
                 package() { "DELAY", package() { 1, }, },
 
                 // [3] PMIC_GPIO: VIN_PM8998 - S3A - ELDO1 - DVDD; LD20-NE182-27-A6/41-D7
@@ -427,7 +430,7 @@ Scope(\_SB_.PEP0)
                     {
                         "IOCTL_PM_GPIO_CONFIG_DIGITAL_OUTPUT",
                         0,                              // PMIC Number: 0 == PM8998, 1 == PMI8998, 2 == PM8005
-                        11,                             // GPIO Number: PM_GPIO_12 / CAM_ELDO1_EN
+                        10,                             // GPIO Number: PM_GPIO_11 / CAM_ELDO1_EN
                         0,                              // Out Buffer Config: 0 == PM_GPIO_OUT_BUFFER_CONFIG_CMOS, 1 == NMOS, 2 == CMOS
                         1,                              // VIN: 0 == PM_GPIO_VIN0, 1 == VIN1
                         1,                              // Source: 0 == PM_GPIO_SOURCE_LOW, 1 == HIGH, 2 == PAIRED_GPIO, 3-4 == SPECIAL_FUNCTION1-2, 5-8 == DTEST1-4
@@ -452,6 +455,11 @@ Scope(\_SB_.PEP0)
                      // "REQUIRED",                     // Optional: Suppressible Type (Default: REQUIRED; Valid: REQUIRED / SUPPRESSIBLE)
                     },
                 },
+                package() { "DELAY", package() { 1, }, },
+
+                // [4.1] VDDIO: camera_vio_ldo
+                package() { "TLMMGPIO", package() { 21, 1, 0, 1, 0, 0, }, },
+                package() { "DELAY", package() { 1, }, },
 
                 // [5] CLOCK; LD20-NE182-45-D4
                 package() { "CLOCK", package() { "cam_cc_mclk0_clk", 8, 24000000, 3, } },       // Frequency from imx318_lib.h
