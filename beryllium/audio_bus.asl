@@ -44,6 +44,7 @@ Device (ADCM)
             Name (_DEP, Package()
             {
                 \_SB_.SPI9,
+                \_SB_.I2C6
             })
 
             Method (_CRS, 0x0, NotSerialized) 

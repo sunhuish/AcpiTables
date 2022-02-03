@@ -27,12 +27,13 @@ Name (TCML, 0x01400000)         // Holds TrEE Carveout Memory Length
 
 //Audio Drivers
 Include("audio.asl")
+Include("audio_bus.asl")
 		
         //
         // Storage - UFS/SD 
         //
         Include("../Common/ufs.asl")
-        // Include("../Common/sdc.asl") // No SD support on polaris
+        Include("../Common/sdc.asl")
         
         //
         // ASL Bridge Device
@@ -143,6 +144,6 @@ Include("pmic_batt.asl")
 //
 Include("../Common/qgpi.asl")
 
-Include("nfc.asl")
+//Include("nfc.asl")
 
 Include("../Common/sar_manager.asl")
