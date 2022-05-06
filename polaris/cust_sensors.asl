@@ -22,10 +22,10 @@ Device (SEN2)
         Return("845")
     }
     Method(PLAT, 0x0, NotSerialized) {
-        Return("MTP")
+        Return("POLARIS")
     }
 	Method(_STA, 0)
 	{
-		Return (0x0)
+		Return (0xF)
 	}
 }
