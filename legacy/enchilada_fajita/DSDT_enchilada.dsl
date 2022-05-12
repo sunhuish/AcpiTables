@@ -59721,17 +59721,16 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                             0x06, 
                             Package (0x01)
                             {
-                                0x0001905A
+                                0x00019096
                             }
                         }, 
 
                         Package (0x02)
                         {
                             0x07, 
-                            Package (0x02)
+                            Package ()
                             {
-                                0x0001912C, 
-                                0x0002D0C8
+                                0x0001912C
                             }
                         }, 
 
