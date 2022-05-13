@@ -45709,86 +45709,44 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                             }
                         }, 
 
-                        Package (0x0F)
+                        Package (0x08)
                         {
                             "PRIMARY_SOURCE_MODES", 
-                            0x0D, 
-                            Package (0x02)
+                            0x06,
+							Package (0x02)		//(600x1300)
                             {
-                                0x0280, 
-                                0x01E0
+                                0x0258, 
+                                0x0514
                             }, 
-
-                            Package (0x02)
+							
+							Package (0x02)		//(720x1560)
+                            {
+                                0x02D0, 
+                                0x0618
+                            }, 
+							
+							Package (0x02)		//(800x1733)
                             {
                                 0x0320, 
-                                0x0258
+                                0x06C5
+                            }, 
+							
+							Package (0x02)		//(900x1950)
+                            {
+                                0x0384, 
+                                0x079E
                             }, 
 
-                            Package (0x02)
+                            Package (0x02)		//(1080x2340)
                             {
-                                0x0500, 
-                                0x02D0
+                                0x0438, 
+                                0x0924
                             }, 
 
-                            Package (0x02)
+                            Package (0x02)		//(1440x3120)
                             {
-                                0x0400, 
-                                0x0300
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0480, 
-                                0x0300
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0500, 
-                                0x0300
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0550, 
-                                0x0300
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0556, 
-                                0x0300
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0640, 
-                                0x0384
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0500, 
-                                0x0400
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x0438
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x04B0
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x0500
+                                0x05A0, 
+                                0x0C30
                             }
                         }
                     }, 
@@ -52199,7 +52157,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "PSTATE", 
                         Zero, 
-                        0x2A51BD80, 
+                        0x30479E80, 
                         Zero, 
                         Package (0x02)
                         {
