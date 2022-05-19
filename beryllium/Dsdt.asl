@@ -20,9 +20,9 @@ DefinitionBlock("DSDT.AML", "DSDT", 0x02, "QCOMM ", "SDM850 ", 3)
         Include("cust_hwn.asl")
 
         //
-        // Touch
+        // Touch and panel xml
         //
-        Include("focaltech.asl")
+        Include("panel.asl")
 
 		//
         // Buttons

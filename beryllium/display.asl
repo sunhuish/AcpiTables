@@ -3,12 +3,12 @@
 //
 
 // Include primary panel specific ROM data
-Include("panelcfg.asl")
-Include("panelcfg2.asl")
+//Include("panelcfg.asl")
+//Include("panelcfg2.asl")
 
 //Check if 0x01 on IC15 is present
 //If it is, return tianma panel config
-Method (PNPC, 0, NotSerialized) {
+//Method (PNPC, 0, NotSerialized) {
 
     // OperationRegion(TOP1, GenericSerialBus, 0x00, 0x100) // GenericSerialBus device at command value offset 0
     // Field(TOP1, BufferAcc, NoLock, Preserve)
@@ -34,8 +34,8 @@ Method (PNPC, 0, NotSerialized) {
     //     Return(PCFB)
     // }
 
-    Return(PCFB)
-}
+    //Return(PCFB)
+//}
 
 
 ///
@@ -54,7 +54,7 @@ Method (_ROM, 3, NotSerialized) {
    //       All other dynamically detected panel configurations must not use this name
    //======================================================================================
 
-   Local2 = PNPC
+   Local2 = PCFA
 
    // Ensure offset does not exceed the buffer size 
    // otherwise return a Null terminated buffer
