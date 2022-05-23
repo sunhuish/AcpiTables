@@ -22,6 +22,15 @@ Name (PCFA, Buffer(){"
 	<InvertHsyncPolarity>False</InvertHsyncPolarity>
 	<BorderColor>0x0</BorderColor>
 </Group>
+<Group id='EDID Configuration'>
+	<HorizontalScreenSize>7</HorizontalScreenSize>
+	<VerticalScreenSize>14</VerticalScreenSize>
+</Group>
+<Group id='Detailed Timing'>
+    <HorizontalScreenSizeMM>68</HorizontalScreenSizeMM>
+    <VerticalScreenSizeMM>140</VerticalScreenSizeMM>
+    <HorizontalVerticalScreenSizeMM>0x00</HorizontalVerticalScreenSizeMM>
+</Group>
 <Group id='Display Interface'>
 	<InterfaceType>8</InterfaceType>
 	<InterfaceColorFormat>3</InterfaceColorFormat>

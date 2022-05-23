@@ -748,166 +748,51 @@ Device (GPU0)
                 Package()
                 {
                     "PRIMARY_SOURCE_MODES",
-                    32,                           // Number of Primary source modes
+                    9,                           // Number of Primary source modes
                     Package()
                     {
-                        640,                      // Width
-                        480,                      // Height
+                        1080,                      // Width
+                        2246,                      // Height
                     },
                     Package()
                     {
-                        640,                      // Width
-                        360,                      // Height
+                        1080,                      // Width
+                        2074,                      // Height
                     },
                     Package()
                     {
-                        800,                      // Width
-                        600,                      // Height
+                        1080,                      // Width
+                        1920,                      // Height
                     },
                     Package()
                     {
-                        960,                      // Width
-                        540,                      // Height
+                        720,                      // Width
+                        1497,                      // Height
                     },
                     Package()
                     {
-                        1280,                     // Width
-                        720,                      // Height
+                        720,                      // Width
+                        1382,                      // Height
                     },
                     Package()
                     {
-                        1280,                     // Width
-                        1080,                     // Height
+                        720,                      // Width
+                        1280,                      // Height
                     },
                     Package()
                     {
-                        1024,                     // Width
-                        768,                      // Height
+                        480,                      // Width
+                        998,                      // Height
                     },
                     Package()
                     {
-                        1152,                     // Width
-                        768,                      // Height
+                        480,                      // Width
+                        921,                      // Height
                     },
                     Package()
                     {
-                        1280,                     // Width
-                        768,                      // Height
-                    },
-                    Package()
-                    {
-                        1360,                     // Width
-                        768,                      // Height
-                    },
-                    Package()
-                    {
-                        1366,                     // Width
-                        768,                      // Height
-                    },
-                    Package()
-                    {
-                        1600,                     // Width
-                        900,                      // Height
-                    },
-                    Package()
-                    {
-                        1280,                     // Width
-                        1024,                     // Height
-                    },
-                    Package()
-                    {
-                        1920,                     // Width
-                        1080,                     // Height
-                    },
-                    Package()
-                    {
-                        1920,                     // Width
-                        1200,                     // Height
-                    },
-                    Package()
-                    {
-                        1920,                     // Width
-                        1280,                     // Height
-                    },
-                    Package()
-                    {
-                        2048,                     // Width
-                        1080,                     // Height
-                    },
-                    Package()
-                    {
-                        2048,                     // Width
-                        1152,                     // Height
-                    },
-                    Package()
-                    {
-                        2048,                     // Width
-                        1536,                     // Height
-                    },
-                    Package()
-                    {
-                        2560,                     // Width
-                        1080,                     // Height
-                    },
-                    Package()
-                    {
-                        2560,                     // Width
-                        1600,                     // Height
-                    },
-                    Package()
-                    {
-                        2560,                     // Width
-                        1440,                     // Height
-                    },
-                    Package()
-                    {
-                        2560,                     // Width
-                        2048,                     // Height
-                    },
-                    Package()
-                    {
-                        3200,                     // Width
-                        1800,                     // Height
-                    },
-                    Package()
-                    {
-                        3200,                     // Width
-                        2400,                     // Height
-                    },
-                    Package()
-                    {
-                        3200,                     // Width
-                        2048,                     // Height
-                    },
-                    Package()
-                    {
-                        3440,                     // Width
-                        1440,                     // Height
-                    },
-                    Package()
-                    {
-                        3840,                     // Width
-                        1080,                     // Height
-                    },
-                    Package()
-                    {
-                        3840,                     // Width
-                        1600,                     // Height
-                    },
-                    Package()
-                    {
-                        3840,                     // Width
-                        2400,                     // Height
-                    },
-                    Package()
-                    {
-                        3840,                     // Width
-                        2160,                     // Height
-                    },
-                    Package()
-                    {
-                        4096,                     // Width
-                        2160,                     // Height
+                        480,                      // Width
+                        640,                      // Height
                     },
                 },
             },
