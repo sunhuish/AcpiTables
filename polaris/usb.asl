@@ -1,4 +1,5 @@
-Name(QUFN, 0x0 )      //enable flag for QcUsbFN driver stack
+// TODO: Fix QcUsbFN crashes
+Name(QUFN, 0x0)      //enable flag for QcUsbFN driver stack
 
 //Holds the DPDM Polarity
 //USB_DPDM_INVALID_INVALID = 0
