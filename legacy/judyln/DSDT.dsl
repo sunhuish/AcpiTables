@@ -45709,47 +45709,102 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                             }
                         }, 
 
-                        Package (0x08)
+                        Package (0x11)
                         {
                             "PRIMARY_SOURCE_MODES", 
-                            0x06,
-							Package (0x02)		//(600x1300)
+                            0x0F,
+							Package (0x02)		//(1440x3120)
                             {
-                                0x0258, 
-                                0x0514
+                                1440, 
+                                3120
+							},
+							
+						    Package (0x02)		//(1440x2560)
+                            {
+                                1440, 
+                                2560
+                            },	
+							
+							Package (0x02)		//(1440x1920)
+                            {
+                                1440, 
+                                1920
+                            },
+							
+							Package (0x02)		//(1080x2340)
+                            {
+                                1080, 
+                                2340
                             }, 
+							
+							Package (0x02)		//(1080x1920)
+                            {
+                                1080, 
+                                1920
+                            },
+
+							Package (0x02)		//(1080x1400)
+                            {
+                                1080, 
+                                1400
+                            },
 							
 							Package (0x02)		//(720x1560)
                             {
-                                0x02D0, 
-                                0x0618
+                                720, 
+                                1560
                             }, 
 							
-							Package (0x02)		//(800x1733)
+							Package (0x02)		//(720x1280)
                             {
-                                0x0320, 
-                                0x06C5
+                                720, 
+                                1280
                             }, 
 							
-							Package (0x02)		//(900x1950)
+							Package (0x02)		//(720x960)
                             {
-                                0x0384, 
-                                0x079E
+                                720, 
+                                960
+                            }, 
+							
+							Package (0x02)		//(600x1300)
+                            {
+                                600, 
+                                1300
+                            }, 	
+							
+							
+							Package (0x02)		//(600x1066)
+                            {
+                                600, 
+                                1066
+                            }, 
+							
+							Package (0x02)		//(600x800)
+                            {
+                                600, 
+								800
+                            },
+							
+							Package (0x02)		//(480x1040)
+                            {
+                                480, 
+                                1040
+                            }, 
+							
+							Package (0x02)		//(480x854)
+                            {
+                                480, 
+                                854
                             }, 
 
-                            Package (0x02)		//(1080x2340)
+							Package (0x02)		//(480x640)
                             {
-                                0x0438, 
-                                0x0924
-                            }, 
-
-                            Package (0x02)		//(1440x3120)
-                            {
-                                0x05A0, 
-                                0x0C30
+                                480, 
+                                640
                             }
                         }
-                    }, 
+                    },
 
                     Package (0x0F)
                     {
@@ -52157,7 +52212,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "PSTATE", 
                         Zero, 
-                        0x2A51BD80, 
+                        0x30479E80, 
                         Zero, 
                         Package (0x02)
                         {
@@ -52590,316 +52645,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Return (RBUF) /* \_SB_.GPU0.DITH.RBUF */
             }
 
-            Name (BLBK, Zero)
-            Method (BLCP, 1, Serialized)
+            Method (BLCP, 1, NotSerialized)
             {
                 Name (RBUF, Buffer (0x0100){})
-                Local0 = Zero
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKHR)
-                Local0 += 0x04
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKCM)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKDS)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKUB)
-                Local0 += One
-                CreateField (RBUF, (Local0 * 0x08), 0x08, PKLB)
-                Local0 += One
-                Name (BON, Buffer (0x03)
-                {
-                     0x39, 0x53, 0x28                                 // 9S(
-                })
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKH2)
-                Local0 += 0x04
-                CreateField (RBUF, (Local0 * 0x08), 0x20, PKP2)
-                PKH2 = SizeOf (BON)
-                PKP2 = BON /* \_SB_.GPU0.BLCP.BON_ */
-                Local0 += SizeOf (BON)
-                CreateDWordField (RBUF, (Local0 * 0x08), EOF)
-                Local1 = Zero
-                Local2 = Zero
-                If ((Arg0 <= 0x0300))
-                {
-                    Local1 = (BLBK / 0x0188)
-                    Local2 = (BLBK / 0x0188)
-                }
-                Else
-                {
-                    Local1 = (Arg0 / 0x0188)
-                    Local2 = (Arg0 / 0x0188)
-                    BLBK = Arg0
-                }
-
-                Local1 &= 0xFF
-                Local2 >>= 0x08
-                Local2 &= 0x03
-                PKHR = 0x04
-                PKCM = 0x39
-                PKDS = 0x51
-                PKUB = Local2
-                PKLB = Local1
-                EOF = Zero
                 Return (RBUF) /* \_SB_.GPU0.BLCP.RBUF */
-            }
-
-            Method (ROM2, 3, NotSerialized)
-            {
-                Name (PCFG, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                While (One)
-                {
-                    If (One)
-                    {
-                        Local2 = PCFG /* \_SB_.GPU0.ROM2.PCFG */
-                    }
-
-                    Break
-                }
-
-                If ((Arg0 >= SizeOf (Local2)))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             // .
-                    })
-                }
-                Else
-                {
-                    Local0 = Arg0
-                }
-
-                If ((Arg1 > 0x1000))
-                {
-                    Local1 = 0x1000
-                }
-                Else
-                {
-                    Local1 = Arg1
-                }
-
-                If (((Local0 + Local1) > SizeOf (Local2)))
-                {
-                    Local1 = (SizeOf (Local2) - Local0)
-                }
-
-                CreateField (Local2, (0x08 * Local0), (0x08 * Local1), RBUF)
-                Return (RBUF) /* \_SB_.GPU0.ROM2.RBUF */
-            }
-
-            Method (IGC2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.IGC2.RBUF */
-            }
-
-            Method (PCC2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.PCC2.RBUF */
-            }
-
-            Method (GCT2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.GCT2.RBUF */
-            }
-
-            Method (LGC2, 3, NotSerialized)
-            {
-                Name (TBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                If ((Arg1 >= SizeOf (TBUF)))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             // .
-                    })
-                }
-                Else
-                {
-                    Local1 = Arg1
-                }
-
-                If ((Arg2 > 0x1000))
-                {
-                    Local2 = 0x1000
-                }
-                Else
-                {
-                    Local2 = Arg2
-                }
-
-                If (((Local1 + Local2) > SizeOf (TBUF)))
-                {
-                    Local2 = (SizeOf (TBUF) - Local1)
-                }
-
-                CreateField (TBUF, (0x08 * Local1), (0x08 * Local2), RBUF)
-                Return (RBUF) /* \_SB_.GPU0.LGC2.RBUF */
-            }
-
-            Method (HSI2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.HSI2.RBUF */
-            }
-
-            Method (GMT2, 2, NotSerialized)
-            {
-                Name (TBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                If ((Arg0 >= SizeOf (TBUF)))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             // .
-                    })
-                }
-                Else
-                {
-                    Local0 = Arg0
-                }
-
-                If ((Arg1 > 0x1000))
-                {
-                    Local1 = 0x1000
-                }
-                Else
-                {
-                    Local1 = Arg1
-                }
-
-                If (((Local0 + Local1) > SizeOf (TBUF)))
-                {
-                    Local1 = (SizeOf (TBUF) - Local0)
-                }
-
-                CreateField (TBUF, (0x08 * Local0), (0x08 * Local1), RBUF)
-                Return (RBUF) /* \_SB_.GPU0.GMT2.RBUF */
-            }
-
-            Method (WGM2, 2, NotSerialized)
-            {
-                Name (TBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                If ((Arg0 >= SizeOf (TBUF)))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             // .
-                    })
-                }
-                Else
-                {
-                    Local0 = Arg0
-                }
-
-                If ((Arg1 > 0x1000))
-                {
-                    Local1 = 0x1000
-                }
-                Else
-                {
-                    Local1 = Arg1
-                }
-
-                If (((Local0 + Local1) > SizeOf (TBUF)))
-                {
-                    Local1 = (SizeOf (TBUF) - Local0)
-                }
-
-                CreateField (TBUF, (0x08 * Local0), (0x08 * Local1), RBUF)
-                Return (RBUF) /* \_SB_.GPU0.WGM2.RBUF */
-            }
-
-            Method (GRT2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.GRT2.RBUF */
-            }
-
-            Method (BRT2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.BRT2.RBUF */
-            }
-
-            Method (DIT2, 2, NotSerialized)
-            {
-                Name (RBUF, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Return (RBUF) /* \_SB_.GPU0.DIT2.RBUF */
-            }
-
-            Method (BLC2, 1, NotSerialized)
-            {
-                Name (RBUF, Buffer (0x0100){})
-                Return (RBUF) /* \_SB_.GPU0.BLC2.RBUF */
-            }
-
-            Method (ROE1, 3, NotSerialized)
-            {
-                Name (PCFG, Buffer (One)
-                {
-                     0x00                                             // .
-                })
-                Local2 = PCFG /* \_SB_.GPU0.ROE1.PCFG */
-                If ((Arg0 >= SizeOf (Local2)))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             // .
-                    })
-                }
-                Else
-                {
-                    Local0 = Arg0
-                }
-
-                If ((Arg1 > 0x1000))
-                {
-                    Local1 = 0x1000
-                }
-                Else
-                {
-                    Local1 = Arg1
-                }
-
-                If (((Local0 + Local1) > SizeOf (Local2)))
-                {
-                    Local1 = (SizeOf (Local2) - Local0)
-                }
-
-                CreateField (Local2, (0x08 * Local0), (0x08 * Local1), RBUF)
-                Return (RBUF) /* \_SB_.GPU0.ROE1.RBUF */
             }
 
             Name (_DOD, Package (0x01)  // _DOD: Display Output Devices
