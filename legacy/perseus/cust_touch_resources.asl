@@ -59,8 +59,8 @@ Scope(\_SB_.PEP0)
                          "REQUIRED",                 // Set type
                      },
                  },            
-                 
-		        // Power source - VCCIO  Power Supply
+
+		// Power source - VCCIO  Power Supply
                 Package ()
                 {
                     "TLMMGPIO", 
@@ -74,6 +74,7 @@ Scope(\_SB_.PEP0)
                         0,   // Drive Strength: 0x0 = 2mA
                     }
                 }, 
+
 
                 // eKTH6318 T1 > 0 sec.  [T1]:  the time difference between 0.9VCC33 and 0.9VCCIO. 
 		        Package()
@@ -108,7 +109,7 @@ Scope(\_SB_.PEP0)
 			        "DELAY",
 			        Package()
 			        {
-				        4000,           // Delay in milliseconds
+				        400,           // Delay in milliseconds
 			        }
 		        },
                  
@@ -133,7 +134,7 @@ Scope(\_SB_.PEP0)
                      "DELAY", 
                      Package()
                      {
-                         200,  // 200 Milsec delay
+                         400,  // 400 Milsec delay
                      }
                  },
 
@@ -193,7 +194,7 @@ Scope(\_SB_.PEP0)
                     "DELAY", 
                     Package()
                     {
-                        4000,  // 4s delay
+                        400,  // 4s delay
                     }
                 },
 
@@ -255,13 +256,13 @@ Scope(\_SB_.PEP0)
                      },
                 },
 		 
-		//100ms delay before the backlight is off
+		//400ms delay before the backlight is off
 	        Package()
                 {
                     "DELAY", 
                     Package()
                     {
-                        100,  // 100ms delay
+                        400,  // 100ms delay
                     }
                 },                 
             },
