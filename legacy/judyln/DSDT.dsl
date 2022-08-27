@@ -45709,102 +45709,47 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                             }
                         }, 
 
-                        Package (0x11)
+                        Package (0x08)
                         {
                             "PRIMARY_SOURCE_MODES", 
-                            0x0F,
-							Package (0x02)		//(1440x3120)
+                            0x06,
+							Package (0x02)		//(600x1300)
                             {
-                                1440, 
-                                3120
-							},
-							
-						    Package (0x02)		//(1440x2560)
-                            {
-                                1440, 
-                                2560
-                            },	
-							
-							Package (0x02)		//(1440x1920)
-                            {
-                                1440, 
-                                1920
-                            },
-							
-							Package (0x02)		//(1080x2340)
-                            {
-                                1080, 
-                                2340
+                                0x0258, 
+                                0x0514
                             }, 
-							
-							Package (0x02)		//(1080x1920)
-                            {
-                                1080, 
-                                1920
-                            },
-
-							Package (0x02)		//(1080x1400)
-                            {
-                                1080, 
-                                1400
-                            },
 							
 							Package (0x02)		//(720x1560)
                             {
-                                720, 
-                                1560
+                                0x02D0, 
+                                0x0618
                             }, 
 							
-							Package (0x02)		//(720x1280)
+							Package (0x02)		//(800x1733)
                             {
-                                720, 
-                                1280
+                                0x0320, 
+                                0x06C5
                             }, 
 							
-							Package (0x02)		//(720x960)
+							Package (0x02)		//(900x1950)
                             {
-                                720, 
-                                960
-                            }, 
-							
-							Package (0x02)		//(600x1300)
-                            {
-                                600, 
-                                1300
-                            }, 	
-							
-							
-							Package (0x02)		//(600x1066)
-                            {
-                                600, 
-                                1066
-                            }, 
-							
-							Package (0x02)		//(600x800)
-                            {
-                                600, 
-								800
-                            },
-							
-							Package (0x02)		//(480x1040)
-                            {
-                                480, 
-                                1040
-                            }, 
-							
-							Package (0x02)		//(480x854)
-                            {
-                                480, 
-                                854
+                                0x0384, 
+                                0x079E
                             }, 
 
-							Package (0x02)		//(480x640)
+                            Package (0x02)		//(1080x2340)
                             {
-                                480, 
-                                640
+                                0x0438, 
+                                0x0924
+                            }, 
+
+                            Package (0x02)		//(1440x3120)
+                            {
+                                0x05A0, 
+                                0x0C30
                             }
                         }
-                    },
+                    }, 
 
                     Package (0x0F)
                     {
@@ -52212,7 +52157,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     {
                         "PSTATE", 
                         Zero, 
-                        0x30479E80, 
+                        0x2A51BD80, 
                         Zero, 
                         Package (0x02)
                         {
@@ -52655,10 +52600,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             {
                 0x00024321
             })
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (0x0F)
-            }
 
             Method (CHDV, 0, NotSerialized)
             {
@@ -52687,12 +52628,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
             Method (DPCC, 2, NotSerialized)
             {
-                Return (CCST) /* \_SB_.CCST */
-            }
-
-            Method (DPIN, 2, NotSerialized)
-            {
-                Return (PINA) /* \_SB_.PINA */
+                Return (\_SB.CCST)
             }
 
             Method (REGR, 0, NotSerialized)
@@ -52714,7 +52650,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     Package (0x02)
                     {
                         "ForceActive", 
-                        Zero
+                        One
                     }, 
 
                     Package (0x02)
