@@ -48393,10 +48393,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                             }
                         }, 
 
-                        Package (0x0F)
+                        Package (0x0D)
                         {
                             "PRIMARY_SOURCE_MODES", 
-                            0x0D, 
+                            0x0B, 
                             Package (0x02)
                             {
                                 0x0280, 
@@ -48411,8 +48411,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
                             Package (0x02)
                             {
-                                0x0500, 
-                                0x02D0
+                                0x0258, 
+                                0x0514
                             }, 
 
                             Package (0x02)
@@ -48423,56 +48423,44 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
                             Package (0x02)
                             {
-                                0x0480, 
-                                0x0300
+                                0x02D0, 
+                                0x0618
+                            },
+
+                            Package (0x02)
+                            {
+                                0x0258, 
+                                0x04AC
                             }, 
 
                             Package (0x02)
                             {
-                                0x0500, 
-                                0x0300
+                                0x0294, 
+                                0x0596
                             }, 
 
                             Package (0x02)
                             {
-                                0x0550, 
-                                0x0300
+                                0x02D0, 
+                                0x0618
                             }, 
 
                             Package (0x02)
                             {
-                                0x0556, 
-                                0x0300
+                                0x0320, 
+                                0x06C5
                             }, 
 
                             Package (0x02)
                             {
-                                0x0640, 
-                                0x0384
-                            }, 
+                                0x0438, 
+                                0x087C
+                            },  
 
                             Package (0x02)
                             {
-                                0x0500, 
-                                0x0400
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x0438
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x04B0
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0780, 
-                                0x0500
+                                0x0438, 
+                                0x0924
                             }
                         }
                     }, 
