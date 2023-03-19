@@ -47219,7 +47219,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Name (RBUF, ResourceTemplate ()
                 {
                     Memory32Fixed (ReadWrite,
-                        0x98F00000,         // Address Base
+                        0x99100000,         // Address Base
                         0x00600000,         // Address Length
                         )
                 })
